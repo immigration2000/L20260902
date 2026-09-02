@@ -10,7 +10,7 @@ public:
 
 	void Tick() override;
 	void Render() override;
-	int Asyncinput();
+	char Asyncinput(char input);
 
 	UEngine();
 	~UEngine();

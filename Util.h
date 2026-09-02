@@ -11,5 +11,25 @@ private:
 
 };
 
+enum keyboard
+{
+	Q,
+	W,
+	E,
+	R,
+	T
+};
 
+enum Mouse
+{
+	left,
+	Right,
+	Wheel
+};
+
+enum InputType
+{
+	Mouse,
+	keyboard
+};
 

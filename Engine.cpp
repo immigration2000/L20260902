@@ -25,7 +25,19 @@ void UEngine::Render()
 	World->Render();
 }
 
-int UEngine::Asyncinput()
+char UEngine::Asyncinput(char input)
 {
+	switch (input)
+	{
+	case InputType::keyboard :
+		return input;
+		break;
+	case InputType::Mouse :
+		return input;
+		break;
+
+	default:
+		break;
+	}
 	return 0;
 }
