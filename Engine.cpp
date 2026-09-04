@@ -43,9 +43,9 @@ void UEngine::Init()
 {
 	InputDevice = new FInputDevice();
 	Renderer = new FRenderer();
+
 	//map loading
 	World = new UWorld();
-	
 
 	OpenLevel("1.umap");
 
@@ -57,7 +57,6 @@ void UEngine::Run()
 	{
 		Input();
 		World->Tick();
-		//system("cls");
 		Renderer->Clear();
 		World->Render();
 		Renderer->Present();
@@ -80,7 +79,7 @@ void UEngine::OpenLevel(std::string MapName)
 		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
 		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
 		{1, 0, 0, 0, 0, 0, 0, 3, 0, 1},
-		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+		{1, 0, 0, 1, 0, 1, 1, 1, 1, 1},
 		{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
 		{1, 0, 0, 0, 0, 0, 0, 0, 4, 1},
 		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1},

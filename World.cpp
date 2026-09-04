@@ -1,6 +1,5 @@
 #include "World.h"
 #include "Actor.h"
-#include "Vector2D.h"
 
 UWorld::UWorld()
 {
@@ -27,18 +26,3 @@ void UWorld::Render()
 	}
 
 }
-
-bool UWorld::CheckCollision(FVector2D pos)
-{
-	for (auto actor : Actors)
-	{
-		if (actor->Location == pos && actor->bIsCollisionEnable)
-		{
-			return true;
-		}
-	}
-	return false;
-}
-
-
-

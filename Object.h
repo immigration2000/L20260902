@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+#include <vector>
+
 class UWorld;
 
 class UObject //메모리 관리, 언리얼 엔진은 모든 UObject 상속됨

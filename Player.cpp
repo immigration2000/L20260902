@@ -2,11 +2,14 @@
 #include "Engine.h"
 #include "InputDevice.h"
 #include "World.h"
+#include "SystemLibrary.h"
+#include <vector>
 
 APlayer::APlayer()
 {
 	Shape = 'P';
 	Layer = 100;
+	bIsCollisionEnable = true;
 }
 
 APlayer::~APlayer()
@@ -15,25 +18,40 @@ APlayer::~APlayer()
 
 void APlayer::Tick()
 {
+	std::vector<AActor*> CollideActors;
 	int KeyCode = GEngine->GetInputDevice()->GetKeyCode();
 	if (KeyCode == 'w')
 	{
-		if (GEngine->GetWorld()->CheckCollision(FVector2D(Location.X, Location.Y - 1))) return;
+		//Predict
 		Location.Y--;
+		if (USystemLibrary::CheckCollide(GetWorld(), this, CollideActors))
+		{
+			Location.Y++;
+		}
+		
 	}
 	if (KeyCode == 's')
 	{
-		if (GEngine->GetWorld()->CheckCollision(FVector2D(Location.X, Location.Y + 1))) return;
 		Location.Y++;
+		if (USystemLibrary::CheckCollide(GetWorld(), this, CollideActors))
+		{
+			Location.Y--;
+		}
 	}
 	if (KeyCode == 'a')
 	{
-		if (GEngine->GetWorld()->CheckCollision(FVector2D(Location.X - 1, Location.Y))) return;
 		Location.X--;
+		if (USystemLibrary::CheckCollide(GetWorld(), this, CollideActors))
+		{
+			Location.X++;
+		}
 	}
 	if (KeyCode == 'd')
 	{
-		if (GEngine->GetWorld()->CheckCollision(FVector2D(Location.X + 1, Location.Y))) return;
 		Location.X++;
+		if (USystemLibrary::CheckCollide(GetWorld(), this, CollideActors))
+		{
+			Location.X--;
+		}
 	}
 }

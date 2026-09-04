@@ -38,7 +38,6 @@ void FRenderer::Clear()
 	DWORD DW;
 	FillConsoleOutputCharacter(BufferHandle[CurrentBufferIndex],
 		' ', 80 * 25, Coord, &DW);
-	
 }
 
 void FRenderer::Present()

@@ -3,7 +3,6 @@
 #include <vector>
 
 class AActor;
-class FVector2D;
 
 class UWorld : public UObject
 {
@@ -17,8 +16,7 @@ public:
 
 	template<typename T>
 	AActor* SpawnActor();
-	
-	bool CheckCollision(FVector2D pos);
+
 
 	std::vector<AActor*>& GetActors()
 	{
