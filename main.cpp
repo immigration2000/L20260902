@@ -1,20 +1,12 @@
-#include <iostream>
 #include "Engine.h"
-
-using namespace std;
 
 int main()
 {
-	bool EnableEngine = true;
-	UEngine* Engine = new UEngine;
-	while (EnableEngine)
-	{
-		Engine->Tick();
-		Engine->Render();
-		
-	}
+	GEngine->Init();
 
-	delete Engine;
-	Engine = nullptr;
+	GEngine->Run();
+
+	GEngine->Exit();
+
 	return 0;
 }

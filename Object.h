@@ -1,13 +1,17 @@
 #pragma once
-#include <iostream>
-#include "Util.h"
+class UWorld;
 
-using namespace std;
-
-class UObject
+class UObject //메모리 관리, 언리얼 엔진은 모든 UObject 상속됨
 {
 public:
-	virtual void Tick();
-	virtual void Render();
+	UObject();
+
+	virtual ~UObject();
+
+	virtual UWorld* GetWorld() const;
+	virtual void SetWorld(UWorld* NewWorld);
+
+protected:
+	UWorld* World;
 };
 

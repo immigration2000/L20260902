@@ -1,23 +1,26 @@
 #include "Actor.h"
+#include "Engine.h"
+#include "Renderer.h"
 
-AActor::AActor()
+AActor::AActor() : Location(0, 0), Shape(' ')
 {
-	cout << "Call AActor Create" << endl;
 }
 
 AActor::~AActor()
 {
-	cout << "Call AActor Delete" << endl;
 }
 
 void AActor::Tick()
 {
-	cout << "Call AActor Tick" << endl;
 }
+
 
 void AActor::Render()
 {
-	cout << "Call AActor Render" << endl;
+	GEngine->GetRenderer()->Render(this);
 }
 
-
+UWorld* AActor::GetWorld() const
+{
+	return World;
+}

@@ -1,11 +1,20 @@
 #include "Object.h"
+#include "World.h"
 
-void UObject::Tick()
+UObject::UObject() : World(nullptr)
 {
-	cout << "Call UObject Tick" << endl;
 }
 
-void UObject::Render()
+UObject::~UObject()
 {
-	cout << "Call UObject Render" << endl;
+}
+
+UWorld* UObject::GetWorld() const
+{
+	return World;
+}
+
+void UObject::SetWorld(UWorld* NewWorld)
+{
+	World = NewWorld;
 }

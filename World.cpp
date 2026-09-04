@@ -1,27 +1,44 @@
 #include "World.h"
+#include "Actor.h"
+#include "Vector2D.h"
 
 UWorld::UWorld()
 {
-	cout << "Call UWorld Create" << endl;
 }
 
 UWorld::~UWorld()
 {
-	cout << "Call UWorld Delete" << endl;
-	delete Actor;
-	Actor = nullptr;
 }
 
 void UWorld::Tick()
 {
-	cout << "Call UWorld Tick" << endl;
-	Actor->Tick();
+	for (auto Actor : Actors)
+	{
+		Actor->Tick();
+	}
+
 }
 
 void UWorld::Render()
 {
-	cout << "Call UWorld Render" << endl;
-	Actor->Render();
+	for (auto Actor : Actors)
+	{
+		Actor->Render();
+	}
+
 }
+
+bool UWorld::CheckCollision(FVector2D pos)
+{
+	for (auto actor : Actors)
+	{
+		if (actor->Location == pos && actor->bIsCollisionEnable)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 
 
