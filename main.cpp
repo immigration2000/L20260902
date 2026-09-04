@@ -1,12 +1,36 @@
 #include "Engine.h"
+#include "SDL.h"
 
-int main()
+#pragma comment(lib,"SDL2")
+#pragma comment(lib,"SDL2main")
+
+//int main()
+//{
+//	GEngine->Init();
+//
+//	GEngine->Run();
+//
+//	GEngine->Exit();
+//
+//	return 0;
+//}
+
+int SDL_main(int argc, char* argv[])
 {
-	GEngine->Init();
+	SDL_Init(SDL_INIT_EVERYTHING);
 
-	GEngine->Run();
+	SDL_Window* Window = SDL_CreateWindow("Game", 100, 100, 800, 600, SDL_WINDOW_SHOWN);
 
-	GEngine->Exit();
+	SDL_Renderer* Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED);
+
+	SDL_Event Event;
+
+	while (SDL_PollEvent(&Event))
+	{
+
+	}
+
+	SDL_Quit();
 
 	return 0;
 }

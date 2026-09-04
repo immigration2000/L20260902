@@ -1,5 +1,7 @@
 #include "Monster.h"
 #include "SystemLibrary.h"
+#include <iostream>
+#include <vector>
 
 AMonster::AMonster()
 {
@@ -16,7 +18,7 @@ AMonster::~AMonster()
 
 void AMonster::Tick()
 {
-	bool Moveing = rand() % 10;
+	bool Moveing = rand() % 50;
 	if (!Moveing)
 	{
 		Move();
