@@ -6,5 +6,8 @@ public:
 	AMonster();
 
 	virtual ~AMonster();
+
+	void Tick() override;
+	void Move();
 };
 
